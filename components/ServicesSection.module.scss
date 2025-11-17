@@ -1,0 +1,142 @@
+@use "../styles/variables" as *;
+
+.section {
+  padding: 3.5rem 0;
+
+  @media (max-width: $bp-md) {
+    padding: 3rem 0;
+  }
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: $bp-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.title {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+  color: $color-blue;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: $color-text-muted;
+  max-width: 520px;
+}
+
+.headerAction {
+  flex-shrink: 0;
+}
+
+.viewAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $color-blue;
+  text-decoration: none;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid rgba(15, 27, 61, 0.25);
+
+  i {
+    font-size: 0.8rem;
+    color: $color-primary;
+  }
+}
+
+.viewAllLink:hover {
+  text-decoration: none;
+  border-bottom-color: $color-primary;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+
+  @media (max-width: $bp-xl) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  padding: 1.4rem 1.3rem 1.3rem;
+  box-shadow: $shadow-soft;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid rgba(15, 27, 61, 0.06);
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(15, 27, 61, 0.18);
+  border-color: rgba(214, 138, 33, 0.5);
+}
+
+.iconWrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background-color: rgba(214, 138, 33, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  font-size: 1.1rem;
+  color: $color-primary;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $color-blue;
+}
+
+.cardText {
+  font-size: 0.9rem;
+  color: $color-text-muted;
+  margin-bottom: 1.1rem;
+  flex: 1;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $color-primary;
+  text-decoration: none;
+}
+
+.cardLink i {
+  font-size: 0.8rem;
+}

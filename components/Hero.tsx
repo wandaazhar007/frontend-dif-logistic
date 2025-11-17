@@ -6,14 +6,20 @@ export default function Hero() {
     <section className={styles.hero} aria-labelledby="hero-heading">
       <div className="container">
         <div className={styles.inner}>
+          {/* LEFT: TEXT CONTENT */}
           <div className={styles.content}>
+            {/* TAGLINE BARU DI ATAS HEADLINE */}
+            <p className={styles.tagline}>Fast Delivery with Excellence.</p>
+
             <h1 id="hero-heading" className={styles.title}>
               Logistik Cerdas untuk Bisnis Anda
             </h1>
+
             <p className={styles.subtitle}>
               Layanan logistik aman, cepat, dan terpercaya untuk semua kebutuhan
               pengiriman Anda di seluruh Indonesia.
             </p>
+
             <div className={styles.actions}>
               <Link href="/kontak" className={styles.primaryCta}>
                 Hubungi Kami
@@ -22,6 +28,7 @@ export default function Hero() {
                 Lihat Layanan
               </Link>
             </div>
+
             <ul className={styles.highlights}>
               <li>
                 <i className="fa-solid fa-ship" aria-hidden="true" />
@@ -42,12 +49,18 @@ export default function Hero() {
             </ul>
           </div>
 
+          {/* RIGHT: VISUAL BOX */}
           <div className={styles.visual} aria-hidden="true">
             <div className={styles.shapeLayer}>
+              {/* Badge atas */}
               <div className={styles.badge}>
                 <span className={styles.badgeTitle}>Nationwide</span>
-                <span className={styles.badgeText}>Jangkauan seluruh Indonesia</span>
+                <span className={styles.badgeText}>
+                  Jangkauan seluruh Indonesia
+                </span>
               </div>
+
+              {/* Stats bawah kiri */}
               <div className={styles.stats}>
                 <div>
                   <span className={styles.statNumber}>24/7</span>
@@ -58,6 +71,8 @@ export default function Hero() {
                   <span className={styles.statLabel}>On-time</span>
                 </div>
               </div>
+
+              {/* Icon marker kanan bawah */}
               <div className={styles.iconCircle}>
                 <i className="fa-solid fa-location-dot" />
               </div>
