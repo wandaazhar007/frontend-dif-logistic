@@ -90,6 +90,8 @@
   border-radius: 24px;
   padding: 1.25rem 1.4rem 1.5rem;
   box-shadow: 0 12px 32px rgba(15, 27, 61, 0.06);
+  // border: .1rem solid salmon;
+  background-color: #f9f9f9;
 
   @media (max-width: $bp-lg) {
     /* Tablet: sedikit lebih kecil dan full-width tapi tetap rapi */

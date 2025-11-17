@@ -1,0 +1,164 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: 3.5rem 0 3.8rem;
+
+  @media (max-width: $bp-md) {
+    padding: 3rem 0;
+  }
+}
+
+.headerRow {
+  margin-bottom: 1.8rem;
+}
+
+.overline {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-size: 1.7rem;
+  color: $color-blue;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.7fr);
+  gap: 2.4rem;
+  align-items: flex-start;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* VISION (LEFT) */
+
+.visionCol {
+  display: flex;
+  align-items: stretch;
+}
+
+.visionCard {
+  position: relative;
+  background: linear-gradient(145deg,
+      rgba(15, 27, 61, 0.04),
+      rgba(214, 138, 33, 0.1));
+  border-radius: 22px;
+  padding: 1.4rem 1.5rem 1.5rem;
+  box-shadow: 0 14px 32px rgba(15, 27, 61, 0.08);
+  border: 1px solid rgba(15, 27, 61, 0.06);
+}
+
+.quoteMark,
+.quoteMarkRight {
+  font-size: 2.4rem;
+  line-height: 1;
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.quoteMark {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.quoteMarkRight {
+  display: block;
+  text-align: right;
+  margin-top: 0.4rem;
+}
+
+.visionText {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: $color-blue;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* MISSION (RIGHT) */
+
+.missionCol {
+  width: 100%;
+}
+
+.missionList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.missionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 10px 26px rgba(15, 27, 61, 0.06);
+  border: 1px solid rgba(15, 27, 61, 0.05);
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background-color: rgba(214, 138, 33, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1.1rem;
+  color: $color-primary;
+}
+
+.missionContent {
+  flex: 1;
+}
+
+.missionTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $color-brown;
+  margin: 0 0 0.2rem;
+}
+
+.missionDesc {
+  font-size: 0.86rem;
+  color: $color-text-muted;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* MOBILE ORDER:
+   - Vision row pertama
+   - Mission row kedua (default urutan DOM)
+   Jadi tidak perlu ubah order, hanya pastikan grid 1 kolom. */
+
+@media (max-width: $bp-md) {
+  .visionCard {
+    padding: 1.2rem 1.1rem 1.3rem;
+  }
+
+  .visionText {
+    font-size: 0.98rem;
+  }
+
+  .missionItem {
+    padding: 0.85rem 0.9rem;
+  }
+}
