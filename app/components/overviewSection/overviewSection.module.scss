@@ -1,0 +1,102 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: 3.5rem 0 3.8rem;
+  background-color: #f9f9f9;
+
+  @media (max-width: $bp-md) {
+    padding: 3rem 0;
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+  gap: 2.5rem;
+  align-items: flex-start;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.headingCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.overline {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: $color-blue;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 0.96rem;
+  color: $color-text-muted;
+  max-width: 260px;
+}
+
+.contentCol {
+  max-width: 640px;
+}
+
+.text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $color-text;
+  margin: 0 0 0.9rem 0;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.highlightCard {
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 8px 22px rgba(15, 27, 61, 0.06);
+  border: 1px solid rgba(15, 27, 61, 0.04);
+}
+
+.highlightLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-text-muted;
+}
+
+.highlightValue {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-brown;
+  margin: 0.15rem 0 0.3rem;
+}
+
+.highlightDesc {
+  display: block;
+  font-size: 0.82rem;
+  color: $color-text-muted;
+}

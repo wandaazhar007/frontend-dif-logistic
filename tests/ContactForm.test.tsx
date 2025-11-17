@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/app/components/ContactForm";
 
 test("shows validation errors", async () => {
   render(<ContactForm />);

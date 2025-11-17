@@ -1,8 +1,8 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.scss";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/app/components/header/Header";
+import Footer from "@/app/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "PT DIF Logistics — Fast Delivery with Excellence",

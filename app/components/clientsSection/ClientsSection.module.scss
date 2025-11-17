@@ -1,0 +1,221 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: 3.8rem 0 4rem;
+
+  @media (max-width: $bp-md) {
+    padding: 3rem 0;
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.5fr);
+  gap: 2.8rem;
+  align-items: center;
+
+  /* Tablet / mobile: jadi 1 kolom supaya tidak mepet ke samping */
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+}
+
+.textCol {
+  max-width: 540px;
+
+  @media (max-width: $bp-lg) {
+    max-width: 100%;
+  }
+}
+
+.overline {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: $color-blue;
+  margin: 0 0 0.9rem 0;
+}
+
+.body {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: $color-text;
+  margin: 0 0 1.4rem 0;
+}
+
+.quoteBlock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  // flex-wrap: wrap;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  background-color: rgba(15, 27, 61, 0.04);
+  border: 1px solid rgba(15, 27, 61, 0.06);
+}
+
+.quoteMark {
+  font-size: 1.4rem;
+  color: $color-primary;
+  line-height: 1;
+
+  @media (max-width: 444px) {
+    display: none;
+  }
+}
+
+.quoteText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $color-brown;
+
+
+}
+
+/* SLIDER WRAPPER */
+
+.sliderCol {
+  background: linear-gradient(135deg,
+      rgba(15, 27, 61, 0.04),
+      rgba(214, 138, 33, 0.06));
+  border-radius: 24px;
+  padding: 1.25rem 1.4rem 1.5rem;
+  box-shadow: 0 12px 32px rgba(15, 27, 61, 0.06);
+
+  @media (max-width: $bp-lg) {
+    /* Tablet: sedikit lebih kecil dan full-width tapi tetap rapi */
+    padding: 1.1rem 1.2rem 1.4rem;
+    min-width: 300px;
+  }
+
+  @media (max-width: 932px) {
+    /* Mobile / lebar kritis: buat lebih compact agar tidak terasa melebar */
+    padding: 1rem 1rem 1.2rem;
+    border-radius: 18px;
+  }
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
+  gap: 1rem;
+
+  @media (max-width: $bp-md) {
+    align-items: flex-start;
+  }
+}
+
+.sliderLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-blue;
+}
+
+.sliderControls {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.controlButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  background-color: $color-white;
+  box-shadow: 0 6px 16px rgba(15, 27, 61, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease;
+
+  i {
+    font-size: 0.8rem;
+    color: $color-brown;
+  }
+}
+
+.controlButton:hover {
+  transform: translateY(-1px);
+  background-color: rgba(214, 138, 33, 0.08);
+  box-shadow: 0 10px 24px rgba(15, 27, 61, 0.25);
+}
+
+/* HORIZONTAL SLIDER */
+
+.slider {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0.4rem 0.1rem 0.2rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  /* cegah melebar di luar container */
+
+  @media (max-width: 932px) {
+    gap: 0.9rem;
+    padding: 0.3rem 0;
+    /* kurangi padding supaya lebih mobile friendly */
+  }
+}
+
+.slider::-webkit-scrollbar {
+  height: 0;
+}
+
+.logoCard {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 120px;
+  text-align: center;
+
+  @media (max-width: 932px) {
+    width: 100px;
+    /* logo sedikit lebih kecil di mobile */
+  }
+}
+
+.logoCircle {
+  width: 90px;
+  height: 90px;
+  border-radius: 999px;
+  background-color: $color-white;
+  box-shadow: 0 10px 26px rgba(15, 27, 61, 0.18);
+  margin: 0 auto 0.4rem;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 932px) {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 0.3rem;
+  }
+}
+
+.logoImage {
+  object-fit: cover;
+}
+
+.logoCaption {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $color-blue;
+
+  @media (max-width: 932px) {
+    font-size: 0.78rem;
+  }
+}

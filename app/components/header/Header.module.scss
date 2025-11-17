@@ -1,0 +1,372 @@
+@use "../../../styles/variables" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: $color-white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+}
+
+/* LOGO + TAGLINE */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logoImage {
+  height: 66px; // <- sesuai perubahanmu
+  width: auto;
+  display: block;
+
+  @media (max-width: $bp-md) {
+    height: 52px;
+  }
+}
+
+.logoTagline {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+  white-space: nowrap;
+
+  @media (max-width: $bp-md) {
+    display: none;
+  }
+}
+
+/* DESKTOP NAV */
+
+.nav {
+  display: flex;
+
+  @media (max-width: $bp-lg) {
+    display: none;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+/* Underline animation shared style */
+.navLink,
+.dropdownToggle {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 600; // <- sesuai perubahanmu
+  color: $color-text-muted;
+  padding-bottom: 0.3rem;
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.15s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, $color-brown, $color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.18s ease;
+  }
+}
+
+.navLink:hover,
+.dropdownToggle:hover {
+  color: $color-blue;
+}
+
+.navLinkActive,
+.dropdownToggle.navLinkActive {
+  color: $color-blue;
+
+  &::after {
+    transform: scaleX(1);
+  }
+}
+
+/* DROPDOWN: LAYANAN */
+
+.navItemHasDropdown {
+  position: relative;
+}
+
+.dropdownIcon {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdownIconOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  min-width: 240px;
+  background-color: $color-white;
+  border-radius: $radius-md;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(15, 27, 61, 0.08);
+  padding: 0.55rem 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 60;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown ul li+li {
+  margin-top: 0.15rem; // jarak antar submenu
+}
+
+.dropdownHeader {
+  display: block;
+  padding: 0.45rem 0.95rem 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: $color-blue;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.dropdownLink {
+  display: block;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.86rem;
+  color: $color-text;
+  text-decoration: none;
+}
+
+.dropdownLink:hover {
+  background-color: rgba(214, 138, 33, 0.08);
+}
+
+/* DESKTOP RIGHT SIDE */
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  @media (max-width: $bp-lg) {
+    display: none;
+  }
+}
+
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: $color-text-muted;
+  text-decoration: none;
+}
+
+.phoneLink i {
+  color: $color-primary;
+}
+
+.ctaButton {
+  background-color: $color-primary;
+  color: $color-white;
+  border-radius: $radius-md;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: $shadow-soft;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease;
+}
+
+.ctaButton:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(214, 138, 33, 0.3);
+  background-color: darken($color-primary, 5%);
+}
+
+/* MOBILE */
+
+.menuButton {
+  display: none;
+  background: none;
+  color: $color-blue;
+  font-size: 1.2rem;
+
+  @media (max-width: $bp-lg) {
+    display: inline-flex;
+  }
+}
+
+.mobileNav {
+  display: none;
+
+  @media (max-width: $bp-lg) {
+    position: fixed;
+    inset: 56px 0 0 0;
+    background: linear-gradient(180deg, $color-blue 0%, #1a2640 100%);
+    color: $color-white;
+    padding: 1rem 1.5rem 2rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+}
+
+.mobileNavOpen {
+  @media (max-width: $bp-lg) {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobileNavList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobileNavItem {
+  margin-bottom: 0.1rem;
+}
+
+.mobileNavLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $color-white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.3rem 0.15rem;
+  border-radius: 6px;
+}
+
+.mobileNavLinkActive {
+  color: $color-primary;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* MOBILE DROPDOWN LAYANAN */
+
+.mobileDropdownToggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.3rem 0.15rem;
+  color: $color-white;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileDropdownList {
+  list-style: none;
+  padding-left: 0.9rem;
+  margin: 0.25rem 0 0.7rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.mobileDropdownList li+li {
+  margin-top: 0.18rem; // jarak submenu mobile
+}
+
+.mobileDropdownLinkHeader {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-primary;
+  padding: 0.15rem 0;
+  text-decoration: none;
+}
+
+.mobileDropdownLink {
+  display: block;
+  font-size: 0.9rem;
+  color: $color-white;
+  padding: 0.12rem 0;
+  text-decoration: none;
+}
+
+.mobileDropdownLink:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE BOTTOM ACTIONS */
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mobilePhone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: $color-white;
+  text-decoration: none;
+}
+
+.mobilePhone i {
+  color: $color-primary;
+}
+
+.mobileCta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-radius: $radius-md;
+  background-color: $color-primary;
+  color: $color-white;
+  font-weight: 600;
+  text-decoration: none;
+}
