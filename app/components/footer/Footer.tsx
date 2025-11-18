@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Footer.module.scss";
 
 export default function Footer() {
@@ -8,72 +9,104 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.grid}>
-          {/* Company info */}
-          <div>
-            <h3 className={styles.brand}>DIF Logistics</h3>
-            <p className={styles.tagline}>Fast Delivery with Excellence</p>
+          {/* BRAND / ABOUT */}
+          <div className={styles.brandCol}>
+            <div className={styles.brandHeader}>
+              <div className={styles.logoCircle}>
+                <Image
+                  src="/images/logo-dif-logistics.png"
+                  alt="Logo DIF Logistics"
+                  width={56}
+                  height={56}
+                  className={styles.logoImage}
+                />
+              </div>
+              <div>
+                <p className={styles.brandName}>DIF Logistics</p>
+                <p className={styles.tagline}>Fast Delivery with Excellence</p>
+              </div>
+            </div>
+
             <p className={styles.text}>
-              Layanan logistik terpadu untuk pengiriman laut, udara, dan darat
-              di seluruh Indonesia.
+              PT DIF Logistics menyediakan solusi logistik terintegrasi yang
+              aman, cepat, dan terpercaya untuk berbagai kebutuhan pengiriman
+              bisnis di seluruh Indonesia.
             </p>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className={styles.heading}>Kontak</h4>
-            <ul className={styles.list}>
+          {/* NAV LINKS */}
+          <div className={styles.navCol}>
+            <h3 className={styles.heading}>Perusahaan</h3>
+            <ul className={styles.linkList}>
               <li>
-                <i className="fa-solid fa-phone" aria-hidden="true" />{" "}
-                <a href="tel:+6281390903900">+62 813 9090 3900</a>
+                <Link href="/tentang-kami" className={styles.footerLink}>
+                  Tentang Kami
+                </Link>
               </li>
               <li>
-                <i className="fa-solid fa-envelope" aria-hidden="true" />{" "}
-                <a href="mailto:diflogistics@gmail.com">
-                  diflogistics@gmail.com
-                </a>
+                <Link href="/layanan" className={styles.footerLink}>
+                  Layanan
+                </Link>
               </li>
               <li>
-                <i className="fa-solid fa-location-dot" aria-hidden="true" />{" "}
-                <span>Jakarta, Indonesia</span>
+                <Link href="/jangkauan" className={styles.footerLink}>
+                  Jangkauan
+                </Link>
+              </li>
+              <li>
+                <Link href="/karir" className={styles.footerLink}>
+                  Karir
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Quick links */}
-          <div>
-            <h4 className={styles.heading}>Navigasi</h4>
-            <ul className={styles.list}>
-              <li>
-                <Link href="/tentang-kami">Tentang Kami</Link>
+          {/* CONTACT */}
+          <div className={styles.contactCol}>
+            <h3 className={styles.heading}>Kontak</h3>
+            <ul className={styles.contactList}>
+              <li className={styles.contactItem}>
+                <i
+                  className={`fa-solid fa-location-dot ${styles.contactIcon}`}
+                  aria-hidden="true"
+                />
+                <span>
+                  WTC Matahari Serpong blok G112, Serpong Utara, Tangerang Selatan, Indonesia
+                </span>
               </li>
-              <li>
-                <Link href="/layanan">Layanan</Link>
+              <li className={styles.contactItem}>
+                <i
+                  className={`fa-solid fa-phone ${styles.contactIcon}`}
+                  aria-hidden="true"
+                />
+                <a href="tel:+6281390903900" className={styles.footerLink}>
+                  +62 813 9090 3900
+                </a>
               </li>
-              <li>
-                <Link href="/jangkauan">Jangkauan</Link>
-              </li>
-              <li>
-                <Link href="/pelanggan">Pelanggan Kami</Link>
-              </li>
-              <li>
-                <Link href="/kontak">Kontak</Link>
+              <li className={styles.contactItem}>
+                <i
+                  className={`fa-solid fa-envelope ${styles.contactIcon}`}
+                  aria-hidden="true"
+                />
+                <a
+                  href="mailto:info@diflogistics.com"
+                  className={styles.footerLink}
+                >
+                  info@diflogistics.com
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className={styles.bottom}>
-          <p className={styles.copy}>
-            © {year} PT DIF Logistics. All rights reserved.
-          </p>
-          <div className={styles.social}>
-            <a href="#" aria-label="WhatsApp DIF Logistics">
-              <i className="fa-brands fa-whatsapp" aria-hidden="true" />
-            </a>
-            <a href="#" aria-label="LinkedIn DIF Logistics">
-              <i className="fa-brands fa-linkedin-in" aria-hidden="true" />
-            </a>
-          </div>
+        {/* BOTTOM BAR */}
+        <div className={styles.bottomBar}>
+          <span className={styles.copy}>
+            © {year} DIF Logistics. All rights reserved.
+          </span>
+          <span className={styles.dev}>
+            Build with ❤️ by <strong><Link href="https://wandaazhar.vercel.app/" target="_blank">Wanda Azhar</Link></strong> in Twin Falls, ID. USA
+          </span>
         </div>
       </div>
     </footer>

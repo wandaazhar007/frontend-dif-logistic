@@ -1,0 +1,129 @@
+@use "../../../styles/variables" as *;
+
+/* Prevent underline for all links inside component */
+.section a {
+  text-decoration: none !important;
+}
+
+.section {
+  padding: 3.2rem 0 3.5rem;
+
+  @media (max-width: $bp-md) {
+    padding: 2.6rem 0 3rem;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.6rem 2rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg,
+      rgba(15, 27, 61, 0.96),
+      rgba(214, 138, 33, 0.92));
+  box-shadow: 0 18px 40px rgba(15, 27, 61, 0.35);
+  color: $color-white;
+
+  @media (max-width: $bp-lg) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.4rem 1.6rem;
+  }
+
+  @media (max-width: $bp-md) {
+    align-items: stretch;
+    gap: 1.4rem;
+  }
+}
+
+/* LEFT */
+
+.contentCol {
+  max-width: 560px;
+
+  @media (max-width: $bp-lg) {
+    order: 1;
+    max-width: 100%;
+  }
+}
+
+.overline {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.title {
+  font-size: 1.7rem;
+  margin: 0 0 0.5rem;
+  color: $color-white;
+
+  @media (max-width: $bp-md) {
+    font-size: 1.5rem;
+  }
+}
+
+.text {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* RIGHT: CTA BUTTONS */
+
+.ctaCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  min-width: 260px;
+
+  @media (max-width: $bp-lg) {
+    order: 2;
+    // align-items: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+
+  background-color: $color-white;
+  color: $color-brown;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+
+  cursor: pointer;
+  // width: auto;
+  width: 270px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease, color 0.12s ease;
+
+  i {
+    font-size: 0.95rem;
+  }
+}
+
+.primaryCta:hover {
+  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
