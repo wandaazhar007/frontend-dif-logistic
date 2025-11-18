@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../../../styles/variables" as *;
 
 .footer {
@@ -26,13 +27,13 @@
 
 .tagline {
   font-size: 0.9rem;
-  color: lighten($color-text-muted, 25%);
+  color: color.adjust($color-text-muted, $lightness: 25%);
   margin: 0 0 0.8rem 0;
 }
 
 .text {
   font-size: 0.9rem;
-  color: lighten($color-text-muted, 35%);
+  color: color.adjust($color-text-muted, $lightness: 35%);
   max-width: 320px;
 }
 
@@ -87,7 +88,7 @@
 
 .copy {
   margin: 0;
-  color: lighten($color-text-muted, 35%);
+  color: color.adjust($color-text-muted, $lightness: 35%);
 }
 
 .social {
