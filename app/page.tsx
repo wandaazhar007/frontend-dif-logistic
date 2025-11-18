@@ -5,7 +5,7 @@ import CompanyOverviewSection from "./components/overviewSection/overviewSection
 import ClientsSection from "./components/clientsSection/ClientsSection";
 import WhyChooseUsSection from "./components/whyChooseUsSection/WhyChooseUsSection";
 import VisionMissionSection from "./components/visionMisionSection/VisionMisionSection";
-
+import ServicesCoverageSection from "./components/servicesCoverageSection/ServicesCoverageSection";
 
 
 
@@ -21,6 +21,7 @@ export default function HomePage() {
       <ClientsSection />
       <WhyChooseUsSection />
       <VisionMissionSection />
+      <ServicesCoverageSection />
       {/* Section berikutnya: services, company overview, clients, contact CTA */}
     </>
   );

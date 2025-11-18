@@ -1,0 +1,224 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: 3.5rem 0 3.8rem;
+
+  @media (max-width: $bp-md) {
+    padding: 3rem 0;
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+  gap: 2.6rem;
+  // align-items: flex-start;
+  align-items: center;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+}
+
+/* LEFT: HEADING + COPY */
+
+.contentCol {
+  max-width: 560px;
+
+  @media (max-width: $bp-lg) {
+    order: 1; // mobile: heading row pertama
+    max-width: 100%;
+  }
+}
+
+.overline {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-size: 1.7rem;
+  color: $color-blue;
+  margin: 0 0 0.9rem;
+}
+
+.text {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: $color-text;
+  margin: 0 0 0.9rem;
+}
+
+.inlineBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.6rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background-color: rgba(15, 27, 61, 0.06);
+  border: 1px solid rgba(15, 27, 61, 0.08);
+  font-size: 0.84rem;
+  color: $color-blue;
+}
+
+.badgeIcon {
+  font-size: 0.9rem;
+  color: $color-primary;
+}
+
+/* RIGHT: CITY SLIDER */
+
+.citiesCol {
+  display: flex;
+  justify-content: center;
+  /* card di tengah secara horizontal */
+  align-items: stretch;
+  height: 200px;
+
+  @media (max-width: $bp-lg) {
+    order: 2; // mobile: list kota row kedua
+  }
+}
+
+.citiesCard {
+  background-color: $color-white;
+  border-radius: 22px;
+  padding: 1.25rem 1.3rem 1.4rem;
+  box-shadow: 0 14px 32px rgba(15, 27, 61, 0.08);
+  border: 1px solid rgba(15, 27, 61, 0.06);
+  width: 100%;
+  max-width: 520px;
+  /* supaya tidak terlalu lebar di desktop */
+}
+
+.citiesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.citiesLabel {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: $color-brown;
+}
+
+.citiesSubtitle {
+  font-size: 0.85rem;
+  color: $color-text-muted;
+  margin: 0.15rem 0 0;
+}
+
+.citiesControls {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.controlButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+  background-color: $color-white;
+  box-shadow: 0 8px 20px rgba(15, 27, 61, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease;
+
+  i {
+    font-size: 0.8rem;
+    color: $color-brown;
+  }
+}
+
+.controlButton:hover {
+  transform: translateY(-1px);
+  background-color: rgba(214, 138, 33, 0.08);
+  box-shadow: 0 10px 24px rgba(15, 27, 61, 0.25);
+}
+
+/* SLIDER: 2x2 per PAGE */
+
+.citiesList {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0 0;
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.citiesList::-webkit-scrollbar {
+  height: 0;
+}
+
+/* Tiap item list = 1 "page" berisi 4 kota (2x2) */
+.citiesPage {
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+  /* lebar 1 page = lebar card */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+  gap: 0.5rem 0.9rem;
+}
+
+.cityItem {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background-color: rgba(15, 27, 61, 0.02);
+}
+
+.cityIconWrapper {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background-color: rgba(214, 138, 33, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cityIcon {
+  font-size: 0.8rem;
+  color: $color-primary;
+}
+
+.cityName {
+  font-size: 0.88rem;
+  color: $color-blue;
+}
+
+/* MOBILE: tetap 2x2 per page, tapi spacing sedikit dipadatkan */
+@media (max-width: $bp-md) {
+  .citiesCard {
+    max-width: 100%;
+  }
+
+  .citiesPage {
+    gap: 0.45rem 0.8rem;
+  }
+
+  .cityItem {
+    padding: 0.4rem 0.65rem;
+  }
+}
