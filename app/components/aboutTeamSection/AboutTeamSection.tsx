@@ -13,7 +13,7 @@ const TEAM: TeamMember[] = [
   {
     name: "Adit",
     role: "Chief Executive Officer",
-    photo: "/images/adit.ong",
+    photo: "/images/adit.png",
     bio: "Memimpin arah strategis PT DIF Logistics, memastikan setiap keputusan bisnis berfokus pada keandalan layanan dan kepuasan pelanggan jangka panjang.",
   },
   {
