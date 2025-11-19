@@ -1,0 +1,147 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: 3.2rem 0 3.4rem;
+
+  @media (max-width: $bp-md) {
+    padding: 2.8rem 0 3rem;
+  }
+}
+
+.inner {
+  border-radius: 24px;
+  padding: 1.8rem 2rem;
+  background-color: #f6f5f4;
+  border: 1px solid rgba(15, 27, 61, 0.06);
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+  gap: 1.8rem;
+  align-items: center;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    padding: 1.6rem 1.4rem;
+    gap: 1.4rem;
+  }
+}
+
+/* LEFT */
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  // align-items: center;
+  // text-align: center;
+
+  @media (max-width: $bp-lg) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.iconWrapper {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: rgba(214, 138, 33, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.2rem;
+}
+
+.icon {
+  font-size: 4.1rem;
+  color: $color-primary;
+}
+
+.title {
+  font-size: 1.6rem;
+  line-height: .3;
+  color: $color-blue;
+  margin: 0;
+
+  @media (max-width: $bp-md) {
+    font-size: 1.4rem;
+  }
+}
+
+.text {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: $color-text;
+  margin: 0.1rem 0 0;
+}
+
+/* RIGHT: ACTIONS */
+
+.actionsCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+
+  @media (max-width: $bp-lg) {
+    align-items: center;
+  }
+}
+
+.primaryCta,
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
+
+  i {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: $bp-md) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.primaryCta {
+  background-color: $color-primary;
+  color: $color-white;
+  box-shadow: 0 12px 30px rgba(214, 138, 33, 0.4);
+  width: 250px;
+}
+
+.primaryCta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(214, 138, 33, 0.5);
+  background-color: $color-primary;
+}
+
+.secondaryCta {
+  background-color: $color-white;
+  color: $color-blue;
+  border: 1px solid rgba(15, 27, 61, 0.18);
+  box-shadow: 0 8px 22px rgba(15, 27, 61, 0.12);
+  width: 250px;
+}
+
+.secondaryCta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(15, 27, 61, 0.2);
+}
+
+/* Mobile spacing tuning */
+@media (max-width: $bp-md) {
+  .section {
+    text-align: left;
+  }
+}
