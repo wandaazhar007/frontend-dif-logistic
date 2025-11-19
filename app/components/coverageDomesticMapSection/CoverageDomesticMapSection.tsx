@@ -94,7 +94,7 @@ export default function CoverageDomesticMapSection() {
                   style={{ width: "100%", height: "100%" }}
                 >
                   <Geographies geography={geoUrl}>
-                    {({ geographies }) =>
+                    {({ geographies }: { geographies: any[] }) =>
                       geographies.map((geo) => {
                         const isIndonesia =
                           geo.properties.ISO_A3 === "IDN" ||
