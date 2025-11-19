@@ -1,0 +1,158 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: 3.5rem 0 3.8rem;
+
+  @media (max-width: $bp-md) {
+    padding: 3.2rem 0 3.4rem;
+  }
+}
+
+/* HEADER */
+
+.header {
+  max-width: 720px;
+  margin: 0 auto 2.2rem;
+  text-align: center;
+}
+
+.iconWrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  margin: 0 auto 0.7rem;
+  background-color: rgba(214, 138, 33, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1.3rem;
+  color: $color-primary;
+}
+
+.overline {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-size: 1.7rem;
+  color: $color-blue;
+  margin: 0 0 0.7rem;
+
+  @media (max-width: $bp-md) {
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: $color-text;
+  margin: 0;
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.8rem;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: $color-white;
+  border-radius: 22px;
+  padding: 1.3rem 1.4rem 1.5rem;
+  box-shadow: 0 16px 40px rgba(15, 27, 61, 0.12);
+  border: 1px solid rgba(15, 27, 61, 0.06);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+
+/* PHOTO */
+
+.photoWrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: rgba(15, 27, 61, 0.06);
+  flex-shrink: 0;
+}
+
+.photo {
+  object-fit: cover;
+}
+
+/* TEXT */
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: $color-blue;
+  margin: 0;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: $color-brown;
+  margin: 0;
+}
+
+.bio {
+  font-size: 0.88rem;
+  color: $color-text-muted;
+  line-height: 1.6;
+  margin: 0.1rem 0 0.4rem;
+}
+
+/* META / TRUST POINTS */
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: $color-text;
+
+  span {
+    line-height: 1.5;
+  }
+}
+
+.metaIcon {
+  font-size: 0.85rem;
+  color: $color-primary;
+  margin-top: 0.1rem;
+}
