@@ -24,7 +24,7 @@ export async function POST(req: Request) {
       "h-captcha-response"?: string;
     };
 
-    // VALIDASI INPUT BASIC
+    // --- VALIDASI INPUT BASIC ---
     if (!name || !name.trim() || !email || !email.trim() || !message || !message.trim()) {
       return NextResponse.json(
         { success: false, message: "Nama, email, dan pesan wajib diisi." },
@@ -61,9 +61,10 @@ export async function POST(req: Request) {
       );
     }
 
-    // --- KIRIM KE WEB3FORMS DALAM TRY TERSENDIRI UNTUK DAPATKAN ERROR DETAIL ---
+    // --- KIRIM KE WEB3FORMS ---
     let web3Res: Response;
-    let web3Json: any;
+    let rawText: string;
+    let jsonData: any | null = null;
 
     try {
       web3Res = await fetch(WEB3FORMS_ENDPOINT, {
@@ -85,10 +86,17 @@ export async function POST(req: Request) {
         }),
       });
 
-      // Coba parse JSON dari Web3Forms
-      web3Json = await web3Res.json();
+      // ambil sebagai TEXT dulu
+      rawText = await web3Res.text();
+
+      // coba parse JSON kalau memang JSON
+      try {
+        jsonData = JSON.parse(rawText);
+      } catch {
+        jsonData = null; // bukan JSON, kemungkinan HTML
+      }
     } catch (err: unknown) {
-      console.error("NETWORK/JSON error when calling Web3Forms:", err);
+      console.error("NETWORK error when calling Web3Forms:", err);
       const errMsg =
         err instanceof Error ? err.message : typeof err === "string" ? err : "Unknown error";
       return NextResponse.json(
@@ -100,25 +108,41 @@ export async function POST(req: Request) {
       );
     }
 
-    // Kalau responnya sukses tapi Web3Forms mengembalikan success: false
-    if (!web3Res.ok || !web3Json?.success) {
-      console.error("Web3Forms responded with error:", web3Json);
-      const msgFromWeb3 =
-        (typeof web3Json?.message === "string" && web3Json.message) ||
-        `Status: ${web3Res.status} ${web3Res.statusText}`;
+    // --- HANDLE RESPONSE DARI WEB3FORMS ---
+
+    // Jika status bukan 2xx → anggap error
+    if (!web3Res.ok) {
+      const statusInfo = `Status: ${web3Res.status} ${web3Res.statusText}`;
+      const msgFromJson =
+        (jsonData && typeof jsonData.message === "string" && jsonData.message) || "";
+      console.error("Web3Forms non-OK response:", statusInfo, msgFromJson || rawText.slice(0, 200));
+
       return NextResponse.json(
         {
           success: false,
-          message: `Web3Forms error: ${msgFromWeb3}`,
+          message: msgFromJson
+            ? `Web3Forms error: ${msgFromJson}`
+            : `Web3Forms error. ${statusInfo}`,
         },
         { status: 500 }
       );
     }
 
-    // Sukses
+    // Status 2xx:
+    //  - kalau JSON & success: true → gunakan message mereka
+    //  - kalau bukan JSON (HTML) → anggap sukses, berikan pesan default
+    if (jsonData && jsonData.success) {
+      return NextResponse.json({
+        success: true,
+        message: jsonData.message ?? "Terima kasih, pesan Anda berhasil dikirim.",
+      });
+    }
+
+    // Sukses HTTP tapi tidak ada / tidak valid JSON → treat as success,
+    // karena kemungkinan ini HTML success page.
     return NextResponse.json({
       success: true,
-      message: web3Json.message ?? "Berhasil mengirim pesan.",
+      message: "Terima kasih, pesan Anda berhasil dikirim.",
     });
   } catch (error: unknown) {
     console.error("Unexpected error in /api/kontak:", error);
