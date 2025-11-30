@@ -1,0 +1,497 @@
+@use "../../../styles/variables" as *;
+
+.page {
+  padding: 6rem 0 5rem;
+  background: $color-bg;
+
+  @media (max-width: $bp-md) {
+    padding: 4.5rem 0 4rem;
+  }
+}
+
+/* HERO */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heroContent {
+  max-width: 640px;
+}
+
+.breadcrumb {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+  margin-bottom: 0.8rem;
+
+  span {
+    opacity: 0.85;
+  }
+
+  strong {
+    color: $color-text;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+
+  i {
+    font-size: 0.85rem;
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.8rem;
+
+  @media (max-width: $bp-md) {
+    font-size: 1.7rem;
+  }
+}
+
+.lead {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: $color-text;
+  margin-bottom: 1.6rem;
+}
+
+.heroHighlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heroHighlightItem {
+  padding: 0.85rem 0.9rem;
+  border-radius: 16px;
+  background: $color-white;
+  box-shadow: $shadow-soft;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: flex-start;
+
+  i {
+    font-size: 1rem;
+    color: $color-primary;
+    margin-top: 0.1rem;
+  }
+}
+
+.highlightLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.highlightValue {
+  font-size: 0.85rem;
+  color: $color-text-muted;
+}
+
+/* HERO SIDE CARD */
+
+.heroSideCard {
+  padding: 2.3rem 2rem;
+  border-radius: 26px;
+  background: $color-white;
+  box-shadow: $shadow-soft;
+}
+
+.heroSideIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba($color-brown, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-brown;
+  margin-bottom: 1rem;
+
+  i {
+    font-size: 1.3rem;
+  }
+}
+
+.heroSideCard h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.6rem;
+}
+
+.heroSideCard p {
+  font-size: 0.9rem;
+  color: $color-text;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.heroSideList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.heroSideList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: $color-text-muted;
+  margin-bottom: 0.5rem;
+
+  i {
+    font-size: 0.8rem;
+    color: $color-primary;
+    margin-top: 0.15rem;
+  }
+}
+
+/* OVERVIEW */
+
+.overviewSection {
+  margin-bottom: 3.5rem;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+  gap: 2.8rem;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.overviewCol h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.7rem;
+}
+
+.overviewCol p {
+  font-size: 0.94rem;
+  color: $color-text;
+  line-height: 1.8;
+  margin-bottom: 0.7rem;
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+
+  li {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    margin-bottom: 0.4rem;
+
+    i {
+      font-size: 0.8rem;
+      color: $color-primary;
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+.typesCol h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 1rem;
+}
+
+.typeCard {
+  padding: 0.9rem 0.9rem;
+  border-radius: 18px;
+  background: $color-white;
+  box-shadow: $shadow-soft;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.typeIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba($color-primary, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-primary;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+.typeCard h4 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: 0.25rem;
+}
+
+.typeCard p {
+  font-size: 0.88rem;
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+.noteBox {
+  margin-top: 0.9rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 14px;
+  background: rgba($color-bg, 0.7);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  color: $color-text;
+
+  i {
+    font-size: 0.9rem;
+    color: $color-blue;
+    margin-top: 0.15rem;
+  }
+}
+
+/* BENEFITS */
+
+.benefitSection {
+  margin-bottom: 3.5rem;
+}
+
+.benefitHeader {
+  max-width: 620px;
+  margin-bottom: 1.6rem;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    font-size: 0.96rem;
+    color: $color-text-muted;
+    line-height: 1.8;
+  }
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefitCard {
+  padding: 1rem 0.9rem;
+  border-radius: 18px;
+  background: $color-white;
+  box-shadow: $shadow-soft;
+}
+
+.benefitIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba($color-primary, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-primary;
+  margin-bottom: 0.7rem;
+
+  i {
+    font-size: 0.95rem;
+  }
+}
+
+.benefitCard h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: 0.35rem;
+}
+
+.benefitCard p {
+  font-size: 0.86rem;
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+/* PROCESS / CTA */
+
+.processSection {
+  margin-bottom: 1.5rem;
+}
+
+.processCard {
+  padding: 2.4rem 2.1rem;
+  border-radius: 26px;
+  background: $color-white;
+  box-shadow: $shadow-soft;
+
+  @media (max-width: $bp-md) {
+    padding: 2rem 1.6rem;
+    border-radius: 22px;
+  }
+}
+
+.processHeader h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.4rem;
+}
+
+.processHeader p {
+  font-size: 0.94rem;
+  color: $color-text-muted;
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+
+.processList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.8rem;
+  display: grid;
+  gap: 0.9rem;
+
+  @media (max-width: $bp-md) {
+    gap: 0.8rem;
+  }
+}
+
+.processList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: $color-primary;
+  color: $color-white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+.processList h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $color-text;
+  margin-bottom: 0.25rem;
+}
+
+.processList p {
+  font-size: 0.88rem;
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+.processCta {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 1.3rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+
+  i {
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.ctaNote {
+  font-size: 0.86rem;
+  color: $color-text-muted;
+  margin-top: 0.75rem;
+
+  a {
+    color: $color-text;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

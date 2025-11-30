@@ -1,29 +1,33 @@
-// app/api/kontak/route.ts
+// app/api/karir/route.ts
 import { NextResponse } from "next/server";
 
-// Endpoint AJAX Formsubmit.co
-// Format resmi: https://formsubmit.co/ajax/YOUR_EMAIL
+// Kirim lamaran ke email ini via Formsubmit.co
 const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/cs@diftranslog.com";
 
 export async function GET() {
-  return NextResponse.json({ ok: true, route: "/api/kontak" });
+  return NextResponse.json({ ok: true, route: "/api/karir" });
 }
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, email, phone, message } = body as {
+    const { name, email, phone, position, experience, portfolio } = body as {
       name?: string;
       email?: string;
       phone?: string;
-      message?: string;
+      position?: string;
+      experience?: string;
+      portfolio?: string;
     };
 
-    // --- VALIDASI INPUT BASIC ---
-    if (!name || !name.trim() || !email || !email.trim() || !message || !message.trim()) {
+    // VALIDASI BASIC
+    if (!name?.trim() || !email?.trim() || !position?.trim() || !experience?.trim()) {
       return NextResponse.json(
-        { success: false, message: "Nama, email, dan pesan wajib diisi." },
+        {
+          success: false,
+          message: "Nama, email, posisi, dan ringkasan pengalaman wajib diisi.",
+        },
         { status: 400 }
       );
     }
@@ -36,20 +40,21 @@ export async function POST(req: Request) {
       );
     }
 
-    // --- SIAPKAN BODY SESUAI DOKUMENTASI FORMSUBMIT (x-www-form-urlencoded) ---
+    // Body sesuai Formsubmit: x-www-form-urlencoded
     const params = new URLSearchParams();
     params.append("name", name.trim());
     params.append("email", email.trim());
     if (phone) params.append("phone", phone.trim());
-    params.append("message", message.trim());
+    params.append("position", position.trim());
+    params.append("experience", experience.trim());
+    if (portfolio) params.append("portfolio", portfolio.trim());
 
-    // field khusus Formsubmit (opsional tapi berguna)
-    params.append("_subject", "Pesan baru dari Form Kontak DIF Logistics");
+    params.append(
+      "_subject",
+      "Lamaran Karir Baru - PT DIF Logistics"
+    );
     params.append("_replyto", email.trim());
-    // kalau nanti mau redirect langsung dari Formsubmit:
-    // params.append("_next", "https://diftranslog.com/terima-kasih");
 
-    // --- KIRIM KE FORMSUBMIT.CO ---
     let formRes: Response;
     let rawText = "";
     let jsonData: any | null = null;
@@ -69,10 +74,10 @@ export async function POST(req: Request) {
       try {
         jsonData = JSON.parse(rawText);
       } catch {
-        jsonData = null; // bukan JSON (harusnya jarang, karena kita set Accept: application/json)
+        jsonData = null;
       }
     } catch (err: unknown) {
-      console.error("NETWORK error when calling Formsubmit:", err);
+      console.error("NETWORK error when calling Formsubmit (karir):", err);
       const errMsg =
         err instanceof Error ? err.message : typeof err === "string" ? err : "Unknown error";
       return NextResponse.json(
@@ -84,14 +89,12 @@ export async function POST(req: Request) {
       );
     }
 
-    // --- HANDLE RESPONSE DARI FORMSUBMIT ---
-
     if (!formRes.ok) {
       const statusInfo = `Status: ${formRes.status} ${formRes.statusText}`;
       const msgFromJson =
         (jsonData && typeof jsonData.message === "string" && jsonData.message) || "";
       console.error(
-        "Formsubmit non-OK response:",
+        "Formsubmit non-OK response (karir):",
         statusInfo,
         msgFromJson || rawText.slice(0, 200)
       );
@@ -107,22 +110,19 @@ export async function POST(req: Request) {
       );
     }
 
-    // Contoh response AJAX mereka:
-    // { "success": "true", "message": "Your message has been sent" }
     if (jsonData && (jsonData.success === "true" || jsonData.success === true)) {
       return NextResponse.json({
         success: true,
-        message: jsonData.message ?? "Terima kasih, pesan Anda berhasil dikirim.",
+        message: jsonData.message ?? "Lamaran berhasil dikirim.",
       });
     }
 
-    // Sukses HTTP tapi JSON tidak jelas → anggap sukses
     return NextResponse.json({
       success: true,
-      message: "Terima kasih, pesan Anda berhasil dikirim.",
+      message: "Lamaran berhasil dikirim.",
     });
   } catch (error: unknown) {
-    console.error("Unexpected error in /api/kontak:", error);
+    console.error("Unexpected error in /api/karir:", error);
     const msg =
       error instanceof Error ? error.message : typeof error === "string" ? error : "Unknown error";
     return NextResponse.json(

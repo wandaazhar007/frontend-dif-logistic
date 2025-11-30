@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 import styles from "./ContactSection.module.scss";
 
 type FormState = {
@@ -18,7 +17,6 @@ type FormErrors = {
   name?: string;
   email?: string;
   message?: string;
-  captcha?: string;
 };
 
 export default function ContactSection() {
@@ -34,7 +32,6 @@ export default function ContactSection() {
   const [status, setStatus] = useState<Status>("idle");
   const [statusMessage, setStatusMessage] = useState<string>("");
   const [errors, setErrors] = useState<FormErrors>({});
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -67,10 +64,6 @@ export default function ContactSection() {
       newErrors.message = "Pesan wajib diisi.";
     }
 
-    if (!captchaToken) {
-      newErrors.captcha = "Mohon selesaikan verifikasi captcha.";
-    }
-
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
@@ -93,10 +86,7 @@ export default function ContactSection() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...form,
-          "h-captcha-response": captchaToken,
-        }),
+        body: JSON.stringify(form),
       });
 
       const data = await res.json();
@@ -121,7 +111,6 @@ export default function ContactSection() {
         phone: "",
         message: "",
       });
-      setCaptchaToken(null);
 
       // Redirect ke halaman terima kasih
       router.push("/terima-kasih");
@@ -325,28 +314,6 @@ export default function ContactSection() {
                   )}
                 </div>
 
-                {/* hCaptcha */}
-                <div className={styles.captchaWrapper}>
-                  <HCaptcha
-                    sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                    reCaptchaCompat={false}
-                    onVerify={(token) => {
-                      setCaptchaToken(token);
-                      setErrors((prev) => ({ ...prev, captcha: undefined }));
-                    }}
-                    onExpire={() => {
-                      setCaptchaToken(null);
-                      setErrors((prev) => ({
-                        ...prev,
-                        captcha: "Captcha telah kadaluarsa, silakan coba lagi.",
-                      }));
-                    }}
-                  />
-                  {errors.captcha && (
-                    <p className={styles.errorText}>{errors.captcha}</p>
-                  )}
-                </div>
-
                 <button
                   type="submit"
                   className={styles.submitButton}
@@ -383,9 +350,8 @@ export default function ContactSection() {
                 )}
 
                 <p className={styles.privacyNote}>
-                  Dengan mengirim formulir ini, Anda menyetujui bahwa kami
-                  dapat menghubungi Anda terkait kebutuhan logistik yang
-                  disampaikan.
+                  Dengan mengirim formulir ini, Anda menyetujui bahwa kami dapat
+                  menghubungi Anda terkait kebutuhan logistik yang disampaikan.
                 </p>
               </form>
             </div>

@@ -1,6 +1,10 @@
+import CareerSection from "../components/carrier/CareerSection";
+
 const Carier = () => {
   return (
-    <h1>test</h1>
+    <h1>
+      <CareerSection />
+    </h1>
   );
 }
 
