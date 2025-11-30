@@ -1,35 +1,3 @@
-// // app/api/contact/route.ts
-// import { NextResponse } from "next/server";
-// import { z } from "zod";
-// import { addContact } from "@/lib/firestore";
-
-// const ContactSchema = z.object({
-//   name: z.string().min(2),
-//   email: z.string().email(),
-//   phone: z.string().optional(),
-//   message: z.string().min(10),
-// });
-
-// export async function POST(req: Request) {
-//   try {
-//     const body = await req.json();
-//     const parsed = ContactSchema.parse(body);
-
-//     const id = await addContact(parsed);
-
-//     // OPTIONAL: send email via SendGrid or Firebase Function here
-//     // await sendNotificationEmail(parsed);
-
-//     return NextResponse.json({ ok: true, id }, { status: 201 });
-//   } catch (err: any) {
-//     if (err?.issues) {
-//       return NextResponse.json({ ok: false, errors: err.issues }, { status: 422 });
-//     }
-//     return NextResponse.json({ ok: false, message: err?.message || "Server error" }, { status: 500 });
-//   }
-// }
-
-
 // app/api/kontak/route.ts
 import { NextResponse } from "next/server";
 
@@ -38,16 +6,54 @@ const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, phone, message } = body as {
+
+    const {
+      name,
+      email,
+      phone,
+      message,
+      // dikirim dari ContactSection: "h-captcha-response": captchaToken
+      ["h-captcha-response"]: hCaptchaResponse,
+    } = body as {
       name?: string;
       email?: string;
       phone?: string;
       message?: string;
+      "h-captcha-response"?: string;
     };
 
-    if (!name || !email || !message) {
+    // VALIDASI INPUT DASAR
+    if (!name || !name.trim() || !email || !email.trim() || !message || !message.trim()) {
       return NextResponse.json(
-        { success: false, message: "Nama, email, dan pesan wajib diisi." },
+        {
+          success: false,
+          message: "Nama, email, dan pesan wajib diisi.",
+        },
+        { status: 400 }
+      );
+    }
+
+    // VALIDASI FORMAT EMAIL SEDERHANA
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Format email tidak valid.",
+        },
+        { status: 400 }
+      );
+    }
+
+    // VALIDASI hCAPTCHA
+    // Web3Forms akan mengecek token ini server-side jika hCaptcha diaktifkan di dashboard.
+    // Jika token tidak ada, kita stop di sini.
+    if (!hCaptchaResponse) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Verifikasi captcha wajib diselesaikan.",
+        },
         { status: 400 }
       );
     }
@@ -66,15 +72,24 @@ export async function POST(req: Request) {
       );
     }
 
+    // PAYLOAD KE WEB3FORMS
+    // Web3Forms akan:
+    // - kirim email ke alamat yang terhubung dengan access_key
+    // - memvalidasi hCaptcha jika di-enable di dashboard
     const payload = {
       access_key: accessKey,
       subject: "Pesan baru dari Form Kontak DIF Logistics",
       from_name: "PT DIF Logistics Website",
       name,
       email,
-      phone,
+      phone: phone ?? "",
       message,
       replyto: email,
+      // penting: kirim token hCaptcha dengan nama field ini
+      "h-captcha-response": hCaptchaResponse,
+      // OPTIONAL: kamu bisa aktifkan redirect di Web3Forms juga,
+      // tapi di project ini redirect sudah ditangani di client (router.push("/terima-kasih")).
+      // redirect: "https://diftranslog.com/terima-kasih",
     };
 
     const web3Res = await fetch(WEB3FORMS_ENDPOINT, {

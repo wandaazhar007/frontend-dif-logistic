@@ -1,6 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import styles from "./ContactSection.module.scss";
 
 type FormState = {
@@ -12,7 +14,16 @@ type FormState = {
 
 type Status = "idle" | "loading" | "success" | "error";
 
+type FormErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+  captcha?: string;
+};
+
 export default function ContactSection() {
+  const router = useRouter();
+
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -22,12 +33,47 @@ export default function ContactSection() {
 
   const [status, setStatus] = useState<Status>("idle");
   const [statusMessage, setStatusMessage] = useState<string>("");
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+
     setForm((prev) => ({ ...prev, [name]: value }));
+
+    // Hapus error field saat user mengetik
+    setErrors((prev) => ({
+      ...prev,
+      [name]: undefined,
+    }));
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!form.name.trim()) {
+      newErrors.name = "Nama wajib diisi.";
+    }
+
+    if (!form.email.trim()) {
+      newErrors.email = "Email wajib diisi.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = "Format email tidak valid.";
+    }
+
+    if (!form.message.trim()) {
+      newErrors.message = "Pesan wajib diisi.";
+    }
+
+    if (!captchaToken) {
+      newErrors.captcha = "Mohon selesaikan verifikasi captcha.";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -35,13 +81,22 @@ export default function ContactSection() {
     setStatus("loading");
     setStatusMessage("");
 
+    const isValid = validateForm();
+    if (!isValid) {
+      setStatus("idle");
+      return;
+    }
+
     try {
       const res = await fetch("/api/kontak", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          "h-captcha-response": captchaToken,
+        }),
       });
 
       const data = await res.json();
@@ -56,14 +111,20 @@ export default function ContactSection() {
 
       setStatus("success");
       setStatusMessage(
-        "Terima kasih! Pesan Anda sudah kami terima. Tim kami akan segera menghubungi Anda."
+        "Terima kasih! Pesan Anda sudah kami terima. Mengarahkan ke halaman terima kasih..."
       );
+
+      // Reset form
       setForm({
         name: "",
         email: "",
         phone: "",
         message: "",
       });
+      setCaptchaToken(null);
+
+      // Redirect ke halaman terima kasih
+      router.push("/terima-kasih");
     } catch (error) {
       setStatus("error");
       setStatusMessage("Terjadi kesalahan jaringan. Silakan coba lagi.");
@@ -98,29 +159,61 @@ export default function ContactSection() {
                   aria-hidden="true"
                 />
                 <div>
-                  <p className={styles.infoLabel}>Email Layanan Pelanggan</p>
-                  <p className={styles.infoValue}>cs@diftranslog.com</p>
+                  <p className={styles.infoLabel}>
+                    Email Layanan Pelanggan{" "}
+                    <i
+                      className={`fa-solid fa-square-arrow-up-right ${styles.infoLabelIcon}`}
+                      aria-hidden="true"
+                    />
+                  </p>
+                  <p className={styles.infoValue}>
+                    <a href="mailto:cs@diftranslog.com">cs@diftranslog.com</a>
+                  </p>
                 </div>
               </div>
+
               <div className={styles.infoItem}>
                 <i
                   className={`fa-solid fa-phone ${styles.infoIcon}`}
                   aria-hidden="true"
                 />
                 <div>
-                  <p className={styles.infoLabel}>Telepon & WhatsApp</p>
-                  <p className={styles.infoValue}>+62 813 9090 3900</p>
+                  <p className={styles.infoLabel}>
+                    Telepon &amp; WhatsApp{" "}
+                    <i
+                      className={`fa-solid fa-square-arrow-up-right ${styles.infoLabelIcon}`}
+                      aria-hidden="true"
+                    />
+                  </p>
+                  <p className={styles.infoValue}>
+                    <a href="tel:+6281390903900">+62 813 9090 3900</a>
+                  </p>
                 </div>
               </div>
+
               <div className={styles.infoItem}>
                 <i
                   className={`fa-solid fa-location-dot ${styles.infoIcon}`}
                   aria-hidden="true"
                 />
                 <div>
-                  <p className={styles.infoLabel}>Kantor Operasional</p>
+                  <p className={styles.infoLabel}>
+                    Kantor Operasional{" "}
+                    <i
+                      className={`fa-solid fa-square-arrow-up-right ${styles.infoLabelIcon}`}
+                      aria-hidden="true"
+                    />
+                  </p>
                   <p className={styles.infoValue}>
-                    (Isi alamat sesuai company profile)
+                    <a
+                      href="https://maps.app.goo.gl/nxoEuS2xh9TYxwYh8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      MALL WTC MATAHARI blok G112 Jl. Raya Serpong No.39, Pd.
+                      Jagung, Kec. Serpong Utara, Kota Tangerang Selatan, Banten
+                      15326
+                    </a>
                   </p>
                 </div>
               </div>
@@ -141,7 +234,10 @@ export default function ContactSection() {
                   <label htmlFor="name">
                     Nama Lengkap <span>*</span>
                   </label>
-                  <div className={styles.inputWrapper}>
+                  <div
+                    className={`${styles.inputWrapper} ${errors.name ? styles.inputError : ""
+                      }`}
+                  >
                     <i
                       className={`fa-solid fa-user ${styles.fieldIcon}`}
                       aria-hidden="true"
@@ -156,13 +252,19 @@ export default function ContactSection() {
                       placeholder="Masukkan nama Anda"
                     />
                   </div>
+                  {errors.name && (
+                    <p className={styles.errorText}>{errors.name}</p>
+                  )}
                 </div>
 
                 <div className={styles.fieldGroup}>
                   <label htmlFor="email">
                     Email <span>*</span>
                   </label>
-                  <div className={styles.inputWrapper}>
+                  <div
+                    className={`${styles.inputWrapper} ${errors.email ? styles.inputError : ""
+                      }`}
+                  >
                     <i
                       className={`fa-solid fa-envelope ${styles.fieldIcon}`}
                       aria-hidden="true"
@@ -177,6 +279,9 @@ export default function ContactSection() {
                       placeholder="nama@perusahaan.com"
                     />
                   </div>
+                  {errors.email && (
+                    <p className={styles.errorText}>{errors.email}</p>
+                  )}
                 </div>
 
                 <div className={styles.fieldGroup}>
@@ -201,7 +306,10 @@ export default function ContactSection() {
                   <label htmlFor="message">
                     Pesan / Kebutuhan Logistik <span>*</span>
                   </label>
-                  <div className={styles.textareaWrapper}>
+                  <div
+                    className={`${styles.textareaWrapper} ${errors.message ? styles.inputError : ""
+                      }`}
+                  >
                     <textarea
                       id="message"
                       name="message"
@@ -212,6 +320,31 @@ export default function ContactSection() {
                       placeholder="Ceritakan secara singkat jenis barang, rute, dan kebutuhan pengiriman Anda."
                     />
                   </div>
+                  {errors.message && (
+                    <p className={styles.errorText}>{errors.message}</p>
+                  )}
+                </div>
+
+                {/* hCaptcha */}
+                <div className={styles.captchaWrapper}>
+                  <HCaptcha
+                    sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                    reCaptchaCompat={false}
+                    onVerify={(token) => {
+                      setCaptchaToken(token);
+                      setErrors((prev) => ({ ...prev, captcha: undefined }));
+                    }}
+                    onExpire={() => {
+                      setCaptchaToken(null);
+                      setErrors((prev) => ({
+                        ...prev,
+                        captcha: "Captcha telah kadaluarsa, silakan coba lagi.",
+                      }));
+                    }}
+                  />
+                  {errors.captcha && (
+                    <p className={styles.errorText}>{errors.captcha}</p>
+                  )}
                 </div>
 
                 <button

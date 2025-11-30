@@ -8,6 +8,15 @@
   }
 }
 
+.section a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section a:hover {
+  text-decoration: underline;
+}
+
 .inner {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
@@ -85,6 +94,14 @@
   font-size: 0.85rem;
   color: $color-text-muted;
   margin: 0 0 0.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.infoLabelIcon {
+  font-size: 0.75rem;
+  color: $color-text-muted;
 }
 
 .infoValue {
@@ -162,12 +179,8 @@
   color: $color-blue;
   outline: none;
   background-color: #f9f9f8;
-
-  &:focus {
-    border-color: $color-primary;
-    box-shadow: 0 0 0 1px rgba(214, 138, 33, 0.4);
-    background-color: #ffffff;
-  }
+  transition: border-color 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease;
 }
 
 .textareaWrapper textarea {
@@ -175,6 +188,22 @@
   padding-left: 0.9rem;
   resize: vertical;
   min-height: 150px;
+}
+
+.inputWrapper input:focus,
+.textareaWrapper textarea:focus {
+  border-color: $color-primary;
+  box-shadow: 0 0 0 1px rgba(214, 138, 33, 0.4);
+  background-color: #ffffff;
+}
+
+/* ERROR STATE */
+
+.inputError input,
+.inputError textarea {
+  border-color: #d9534f;
+  box-shadow: 0 0 0 1px rgba(217, 83, 79, 0.35);
+  background-color: rgba(217, 83, 79, 0.04);
 }
 
 .fieldIcon {
@@ -185,6 +214,22 @@
   font-size: 0.9rem;
   color: $color-text-muted;
 }
+
+.errorText {
+  font-size: 0.78rem;
+  color: #d9534f;
+}
+
+/* hCaptcha wrapper */
+
+.captchaWrapper {
+  margin-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* SUBMIT & STATUS */
 
 .submitButton {
   margin-top: 0.3rem;
@@ -239,6 +284,7 @@
 }
 
 /* MOBILE ORDER */
+
 @media (max-width: $bp-lg) {
   .copyCol {
     order: 1;
