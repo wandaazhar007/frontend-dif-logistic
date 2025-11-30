@@ -3,6 +3,11 @@ import { NextResponse } from "next/server";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
+// GET untuk test cepat di browser / vercel
+export async function GET() {
+  return NextResponse.json({ ok: true, route: "/api/kontak" });
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -12,7 +17,6 @@ export async function POST(req: Request) {
       email,
       phone,
       message,
-      // dikirim dari ContactSection: "h-captcha-response": captchaToken
       ["h-captcha-response"]: hCaptchaResponse,
     } = body as {
       name?: string;
@@ -22,7 +26,7 @@ export async function POST(req: Request) {
       "h-captcha-response"?: string;
     };
 
-    // VALIDASI INPUT DASAR
+    // VALIDASI INPUT BASIC
     if (!name || !name.trim() || !email || !email.trim() || !message || !message.trim()) {
       return NextResponse.json(
         {
@@ -33,7 +37,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // VALIDASI FORMAT EMAIL SEDERHANA
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -45,9 +48,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // VALIDASI hCAPTCHA
-    // Web3Forms akan mengecek token ini server-side jika hCaptcha diaktifkan di dashboard.
-    // Jika token tidak ada, kita stop di sini.
     if (!hCaptchaResponse) {
       return NextResponse.json(
         {
@@ -72,10 +72,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // PAYLOAD KE WEB3FORMS
-    // Web3Forms akan:
-    // - kirim email ke alamat yang terhubung dengan access_key
-    // - memvalidasi hCaptcha jika di-enable di dashboard
     const payload = {
       access_key: accessKey,
       subject: "Pesan baru dari Form Kontak DIF Logistics",
@@ -85,11 +81,7 @@ export async function POST(req: Request) {
       phone: phone ?? "",
       message,
       replyto: email,
-      // penting: kirim token hCaptcha dengan nama field ini
       "h-captcha-response": hCaptchaResponse,
-      // OPTIONAL: kamu bisa aktifkan redirect di Web3Forms juga,
-      // tapi di project ini redirect sudah ditangani di client (router.push("/terima-kasih")).
-      // redirect: "https://diftranslog.com/terima-kasih",
     };
 
     const web3Res = await fetch(WEB3FORMS_ENDPOINT, {
