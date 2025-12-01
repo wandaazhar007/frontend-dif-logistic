@@ -1,24 +1,23 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.scss";
 import Header from "@/app/components/header/Header";
 import Footer from "@/app/components/footer/Footer";
 
 export const metadata: Metadata = {
-  title: "PT DIF Logistics — Fast Delivery with Excellence",
+  title: "PT DIF Trans Logistik — Fast Delivery with Excellence",
   description:
-    "PT DIF Logistics menyediakan layanan logistik laut, udara, dan darat yang aman, cepat, dan terpercaya untuk bisnis Anda di seluruh Indonesia.",
-  metadataBase: new URL("https://www.dif-logistics.com"), // ganti dengan domain final
+    "PT DIF Trans Logistik menyediakan layanan logistik laut, udara, dan darat yang aman, cepat, dan terpercaya untuk bisnis Anda di seluruh Indonesia.",
+  metadataBase: new URL("https://www.diftranslog.com"),
   openGraph: {
     type: "website",
-    title: "PT DIF Logistics — Fast Delivery with Excellence",
+    title: "PT DIF Trans Logistik — Fast Delivery with Excellence",
     description:
       "Solusi logistik terpadu: Domestic Sea Freight, Domestic Air Freight, Inland Transport, dan Contract Logistics.",
-    url: "https://www.dif-logistics.com",
+    url: "https://www.diftranslog.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PT DIF Logistics — Fast Delivery with Excellence",
+    title: "PT DIF diftranslog — Fast Delivery with Excellence",
     description:
       "Layanan logistik aman, cepat, dan terpercaya untuk semua kebutuhan pengiriman Anda.",
   },
