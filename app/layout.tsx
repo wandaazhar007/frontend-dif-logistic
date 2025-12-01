@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "https://www.diftranslog.com",
     images: [
       {
-        url: "/images/logo-icon-dif.png", // 🔹 your new image
+        url: "/images/icon-logo-dif.png", // 🔹 your new image
         width: 256,
         height: 256,
         alt: "PT DIF Trans Logistik office and logo",
