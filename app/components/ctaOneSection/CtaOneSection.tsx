@@ -10,7 +10,7 @@ export default function CtaOneSection() {
           <div className={styles.contentCol}>
             <p className={styles.overline}>Siap Kirim Hari Ini?</p>
             <h2 id="cta-one-heading" className={styles.title}>
-              Optimalkan pengiriman bisnis Anda bersama DIF Logistics.
+              Optimalkan pengiriman bisnis Anda bersama DIF Trans Logistik.
             </h2>
             <p className={styles.text}>
               Tim kami siap membantu merancang solusi logistik yang aman, cepat,
