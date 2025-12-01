@@ -53,7 +53,7 @@ export default function ClientsOverviewSection() {
               Dipercaya brand terkemuka untuk mengelola rantai pasok mereka.
             </h1>
             <p className={styles.text}>
-              PT DIF Logistics menjadi mitra logistik bagi berbagai perusahaan
+              PT DIF Trans Logistik menjadi mitra logistik bagi berbagai perusahaan
               nasional dan internasional, mulai dari brand consumer goods,
               e-commerce, hingga manufaktur. Kepercayaan mereka adalah hasil
               dari konsistensi kami dalam menjaga kualitas layanan, keamanan
@@ -110,7 +110,7 @@ export default function ClientsOverviewSection() {
 
               <div
                 className={styles.carousel}
-                aria-label="Logo pelanggan dan mitra PT DIF Logistics"
+                aria-label="Logo pelanggan dan mitra PT DIF Trans Logistik"
               >
                 <div className={styles.track}>
                   {CLIENT_LOGOS.concat(CLIENT_LOGOS).map((logo, index) => (
