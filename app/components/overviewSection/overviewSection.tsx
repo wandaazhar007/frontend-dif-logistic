@@ -24,7 +24,7 @@ export default function CompanyOverviewSection() {
           {/* RIGHT: COPYWRITING DARI COMPANY PROFILE */}
           <div className={styles.contentCol}>
             <p className={styles.text}>
-              Didirikan pada tahun 2019, PT DIF Logistics hadir sebagai solusi
+              Didirikan pada tahun 2019, PT DIF Trans Logistik hadir sebagai solusi
               logistik modern yang menjawab kebutuhan pengiriman barang yang
               terus meningkat, baik dalam skala domestik maupun internasional.
             </p>

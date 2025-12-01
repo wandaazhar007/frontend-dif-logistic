@@ -59,7 +59,7 @@ export default function ClientsSection() {
 
             <p className={styles.body}>
               Hubungan jangka panjang dengan para pelanggan adalah fondasi utama
-              pertumbuhan PT DIF Logistics. Dari perusahaan nasional hingga
+              pertumbuhan PT DIF Trans Logistik. Dari perusahaan nasional hingga
               brand global, mereka mempercayakan pengiriman barang bernilai dan
               volume tinggi kepada kami karena konsistensi, profesionalisme,
               serta solusi logistik terintegrasi yang kami sediakan.
