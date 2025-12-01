@@ -20,7 +20,7 @@ export default function CtaTwoSection() {
               Siap membangun jaringan distribusi <p>yang lebih kuat?</p>
             </h2>
             <p className={styles.text}>
-              Diskusikan kebutuhan logistik Anda bersama tim PT DIF Logistics.
+              Diskusikan kebutuhan logistik Anda bersama tim PT DIF Trans Logistik.
               Kami membantu merancang solusi pengiriman yang efisien, aman, dan
               selaras dengan strategi bisnis Anda di seluruh Indonesia.
             </p>

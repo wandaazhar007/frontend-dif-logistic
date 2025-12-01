@@ -64,7 +64,7 @@ export default function CoverageDomesticMapSection() {
             <p className={styles.text}>
               Kami melayani pengiriman reguler dan proyek ke berbagai kota dan
               pulau utama di Indonesia. Dengan kombinasi armada laut, darat, dan
-              udara, PT DIF Logistics memastikan distribusi berjalan lancar
+              udara, PT DIF Trans Logistik memastikan distribusi berjalan lancar
               dari gudang pusat hingga titik akhir pelanggan Anda.
             </p>
             <p className={styles.text}>
@@ -80,7 +80,7 @@ export default function CoverageDomesticMapSection() {
               <div className={styles.mapHeader}>
                 <p className={styles.overline}>Jangkauan Domestik</p>
                 <h4 className={styles.mapTitle}>
-                  Peta layanan PT DIF Logistics di Indonesia.
+                  Peta layanan PT DIF Trans Logistik di Indonesia.
                 </h4>
               </div>
 
