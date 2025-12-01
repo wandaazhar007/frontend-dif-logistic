@@ -13,7 +13,7 @@ export default function CtaThreeSection() {
               Ingin pastikan jangkauan kami sesuai dengan rute bisnis Anda?
             </h2>
             <p className={styles.text}>
-              Tim PT DIF Logistics siap membantu Anda merencanakan rute
+              Tim PT DIF Trans Logistik siap membantu Anda merencanakan rute
               pengiriman yang paling efisien, dari pusat distribusi hingga titik
               akhir di seluruh Indonesia. Hubungi kami untuk diskusi singkat
               seputar kebutuhan jangkauan dan solusi logistik yang tepat.
@@ -24,7 +24,7 @@ export default function CtaThreeSection() {
           <div className={styles.actionCol}>
             <Link href="tel:+6281390903900" className={styles.callButton}>
               <i className="fa-solid fa-phone" aria-hidden="true" />
-              <span>Hubungi DIF Logistics</span>
+              <span>Hubungi DIF Trans Logistik</span>
             </Link>
           </div>
         </div>
