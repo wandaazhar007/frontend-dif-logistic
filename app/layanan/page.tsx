@@ -3,9 +3,9 @@ import Link from "next/link";
 import styles from "./LayananPage.module.scss";
 
 export const metadata: Metadata = {
-  title: "Layanan | PT DIF Logistics",
+  title: "Layanan | PT DIF Trans Logistik",
   description:
-    "Daftar layanan PT DIF Logistics: Domestic Sea Freight, Domestic Air Freight, Inland Transport, Contract Logistics, dan On-Call Logistics.",
+    "Daftar layanan PT DIF Trans Logistik: Domestic Sea Freight, Domestic Air Freight, Inland Transport, Contract Logistics, dan On-Call Logistics.",
 };
 
 type ServiceItem = {
@@ -66,12 +66,12 @@ export default function LayananPage() {
         {/* HERO / INTRO */}
         <section className={styles.heroSection} aria-labelledby="services-heading">
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Layanan DIF Logistics</p>
+            <p className={styles.eyebrow}>Layanan DIF Trans Logistik</p>
             <h1 id="services-heading" className={styles.title}>
               Solusi Logistik Terintegrasi untuk Kebutuhan Bisnis Anda.
             </h1>
             <p className={styles.lead}>
-              PT DIF Logistics menyediakan rangkaian layanan logistik yang saling
+              PT DIF Trans Logistik menyediakan rangkaian layanan logistik yang saling
               terhubung—mulai dari pengiriman laut, udara, distribusi darat,
               hingga contract logistics dan on-call support—untuk mendukung
               pertumbuhan operasi bisnis Anda di berbagai wilayah.
@@ -126,7 +126,7 @@ export default function LayananPage() {
         {/* SERVICES GRID */}
         <section
           className={styles.servicesSection}
-          aria-label="Daftar layanan PT DIF Logistics"
+          aria-label="Daftar layanan PT DIF Trans Logistik"
         >
           <header className={styles.sectionHeader}>
             <h2>Layanan Utama Kami</h2>
