@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import styles from "./DomesticSeaFreightPage.module.scss";
 
 export const metadata: Metadata = {
-  title: "Domestic Sea Freight (FCL & LCL) | PT DIF Logistics",
+  title: "Domestic Sea Freight (FCL & LCL) | PT DIF Trans Logistik",
   description:
-    "Layanan Domestic Sea Freight PT DIF Logistics untuk pengiriman antar-pulau via laut, baik FCL maupun LCL, dengan pengelolaan yang aman, terukur, dan tepat waktu.",
+    "Layanan Domestic Sea Freight PT DIF Trans Logistik untuk pengiriman antar-pulau via laut, baik FCL maupun LCL, dengan pengelolaan yang aman, terukur, dan tepat waktu.",
 };
 
 export default function DomesticSeaFreightPage() {
@@ -29,7 +29,7 @@ export default function DomesticSeaFreightPage() {
             </h1>
 
             <p className={styles.lead}>
-              PT DIF Logistics menyediakan layanan pengiriman laut domestik
+              PT DIF Trans Logistik menyediakan layanan pengiriman laut domestik
               untuk kebutuhan FCL dan LCL, dengan pengelolaan yang terencana,
               transparan, dan tepat waktu, mendukung arus distribusi bisnis Anda
               di seluruh Indonesia.
@@ -98,7 +98,7 @@ export default function DomesticSeaFreightPage() {
             <div className={styles.overviewCol}>
               <h2>Gambaran Layanan</h2>
               <p>
-                Domestic Sea Freight PT DIF Logistics dirancang untuk
+                Domestic Sea Freight PT DIF Trans Logistik dirancang untuk
                 mengoptimalkan biaya dan keandalan pengiriman antar-pulau.
                 Melalui jaringan mitra pelayaran dan terminal yang terpercaya,
                 kami membantu bisnis menjaga kelancaran supply chain tanpa
@@ -174,7 +174,7 @@ export default function DomesticSeaFreightPage() {
         {/* BENEFITS SECTION */}
         <section className={styles.benefitSection}>
           <div className={styles.benefitHeader}>
-            <h2>Keunggulan Domestic Sea Freight PT DIF Logistics</h2>
+            <h2>Keunggulan Domestic Sea Freight PT DIF Trans Logistik</h2>
             <p>
               Kami menggabungkan perencanaan yang matang, jaringan mitra yang
               kuat, dan komunikasi yang transparan untuk memastikan setiap
