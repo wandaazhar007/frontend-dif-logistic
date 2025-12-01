@@ -14,11 +14,11 @@ export default function WhyChooseUsSection() {
           <div className={styles.contentCol}>
             <p className={styles.overline}>Why Choose Us</p>
             <h2 id="why-choose-us-heading" className={styles.title}>
-              Kenapa Memilih PT DIF Logistics?
+              Kenapa Memilih PT DIF Trans Logistik?
             </h2>
 
             <p className={styles.intro}>
-              PT DIF Logistics menyediakan layanan logistik yang aman, cepat,
+              PT DIF Trans Logistik menyediakan layanan logistik yang aman, cepat,
               dan terpercaya. Kami memastikan setiap pengiriman dikelola secara
               profesional, efisien, dan tepat waktu.
             </p>
@@ -53,7 +53,7 @@ export default function WhyChooseUsSection() {
             <div className={styles.imageWrapper}>
               <Image
                 src="/images/hero-logistics.png"
-                alt="Kantor PT DIF Logistics"
+                alt="Kantor PT DIF Trans Logistik"
                 fill
                 sizes="(min-width: 992px) 480px, 100vw"
                 className={styles.image}
@@ -61,7 +61,7 @@ export default function WhyChooseUsSection() {
               />
               <div className={styles.imageOverlay} />
               <div className={styles.imageBadge}>
-                <span className={styles.badgeTitle}>DIF Logistics</span>
+                <span className={styles.badgeTitle}>DIF Trans Logistik</span>
                 <span className={styles.badgeText}>
                   Operasional profesional dengan standar tinggi.
                 </span>
