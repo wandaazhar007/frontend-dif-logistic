@@ -3,9 +3,9 @@ import Image from "next/image";
 import styles from "./OnCallLogisticsPage.module.scss";
 
 export const metadata: Metadata = {
-  title: "On-Call Logistics | PT DIF Logistics",
+  title: "On-Call Logistics | PT DIF Trans Logistik",
   description:
-    "Layanan On-Call Logistics PT DIF Logistics untuk kebutuhan pengiriman mendesak, insidental, dan situasional dengan respon yang cepat dan terukur.",
+    "Layanan On-Call Logistics PT DIF Trans Logistik untuk kebutuhan pengiriman mendesak, insidental, dan situasional dengan respon yang cepat dan terukur.",
 };
 
 export default function OnCallLogisticsPage() {
@@ -40,7 +40,7 @@ export default function OnCallLogisticsPage() {
             </h1>
 
             <p className={styles.lead}>
-              Layanan On-Call Logistics PT DIF Logistics dirancang untuk
+              Layanan On-Call Logistics PT DIF Trans Logistik dirancang untuk
               menjawab kebutuhan pengiriman insidental, mendesak, atau situasional
               di luar pola distribusi rutin. Tim kami siap membantu ketika Anda
               membutuhkan respon cepat dengan eksekusi yang tetap terukur.
@@ -72,7 +72,7 @@ export default function OnCallLogisticsPage() {
               <div className={styles.heroPhotoInner}>
                 <Image
                   src="/images/career1.jpg"
-                  alt="Tim operasional PT DIF Logistics"
+                  alt="Tim operasional PT DIF Trans Logistik"
                   fill
                   className={styles.heroPhoto}
                   priority
@@ -101,7 +101,7 @@ export default function OnCallLogisticsPage() {
                 On-Call Logistics adalah layanan yang memberikan fleksibilitas
                 tambahan di luar skema distribusi reguler. Ketika terjadi lonjakan
                 permintaan, kebutuhan pengiriman insidental, atau situasi khusus
-                yang memerlukan penanganan segera, PT DIF Logistics hadir untuk
+                yang memerlukan penanganan segera, PT DIF Trans Logistik hadir untuk
                 membantu menjembatani kebutuhan tersebut.
               </p>
               <p>
@@ -170,7 +170,7 @@ export default function OnCallLogisticsPage() {
         {/* SERVICE FEATURES / VALUE */}
         <section className={styles.featureSection}>
           <div className={styles.featureHeader}>
-            <h2>Nilai Tambah Layanan On-Call Logistics PT DIF Logistics</h2>
+            <h2>Nilai Tambah Layanan On-Call Logistics PT DIF Trans Logistik</h2>
             <p>
               Kami menjaga agar setiap permintaan mendesak tetap mengikuti
               prinsip yang terukur: jelas dalam komunikasi, rapi dalam eksekusi,
@@ -288,7 +288,7 @@ export default function OnCallLogisticsPage() {
             <div className={styles.ctaText}>
               <h2>Butuh dukungan logistik on-call untuk pengiriman berikutnya?</h2>
               <p>
-                Sampaikan kebutuhan pengiriman mendesak Anda. Tim PT DIF Logistics
+                Sampaikan kebutuhan pengiriman mendesak Anda. Tim PT DIF Trans Logistik
                 siap membantu mencari solusi terbaik untuk situasi yang tidak
                 dapat menunggu jadwal reguler.
               </p>

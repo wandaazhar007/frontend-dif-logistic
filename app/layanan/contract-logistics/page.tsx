@@ -3,9 +3,9 @@ import Image from "next/image";
 import styles from "./ContractLogisticsPage.module.scss";
 
 export const metadata: Metadata = {
-  title: "Contract Logistics | PT DIF Logistics",
+  title: "Contract Logistics | PT DIF Trans Logistik",
   description:
-    "Layanan Contract Logistics PT DIF Logistics untuk pengelolaan rantai pasok end-to-end yang terstruktur, transparan, dan dapat diskalakan.",
+    "Layanan Contract Logistics PT DIF Trans Logistik untuk pengelolaan rantai pasok end-to-end yang terstruktur, transparan, dan dapat diskalakan.",
 };
 
 export default function ContractLogisticsPage() {
@@ -40,7 +40,7 @@ export default function ContractLogisticsPage() {
             </h1>
 
             <p className={styles.lead}>
-              Contract Logistics PT DIF Logistics dirancang untuk perusahaan
+              Contract Logistics PT DIF Trans Logistik dirancang untuk perusahaan
               yang membutuhkan pengelolaan logistik secara end-to-end dalam
               jangka menengah hingga panjang. Kami membantu mengatur alur barang
               dari pemasok hingga pelanggan dengan proses yang terukur dan
@@ -104,7 +104,7 @@ export default function ContractLogisticsPage() {
               <div className={styles.photoInner}>
                 <Image
                   src="/images/kantor-dif-logistics.jpg"
-                  alt="Kantor PT DIF Logistics"
+                  alt="Kantor PT DIF Trans Logistik"
                   fill
                   className={styles.photo}
                   priority
@@ -132,7 +132,7 @@ export default function ContractLogisticsPage() {
               <p>
                 Contract Logistics bukan sekadar pengiriman barang, tetapi
                 kemitraan jangka panjang untuk mengelola proses logistik dari
-                hulu ke hilir. PT DIF Logistics membantu merancang, mengoperasikan,
+                hulu ke hilir. PT DIF Trans Logistik membantu merancang, mengoperasikan,
                 dan mengoptimalkan alur distribusi sesuai kebutuhan unik setiap
                 perusahaan.
               </p>
@@ -219,7 +219,7 @@ export default function ContractLogisticsPage() {
         {/* VALUE / BENEFIT SECTION */}
         <section className={styles.benefitSection}>
           <div className={styles.benefitHeader}>
-            <h2>Keunggulan Contract Logistics PT DIF Logistics</h2>
+            <h2>Keunggulan Contract Logistics PT DIF Trans Logistik</h2>
             <p>
               Kami menggabungkan pendekatan strategis, eksekusi operasional yang
               disiplin, dan komunikasi yang konsisten untuk menghadirkan layanan
