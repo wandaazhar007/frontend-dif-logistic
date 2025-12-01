@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description:
     "PT DIF Trans Logistik menyediakan layanan logistik laut, udara, dan darat yang aman, cepat, dan terpercaya untuk bisnis Anda di seluruh Indonesia.",
   metadataBase: new URL("https://www.diftranslog.com"),
+  icons: {
+    icon: "/images/icon-logo-dif.png",
+    shortcut: "/images/icon-logo-dif.png",
+    apple: "/images/icon-logo-dif.png",
+  },
   openGraph: {
     type: "website",
     title: "PT DIF Trans Logistik — Fast Delivery with Excellence",
