@@ -131,7 +131,7 @@ export default function ContactSection() {
               Mari diskusikan kebutuhan logistik bisnis Anda.
             </h1>
             <p className={styles.subtitle}>
-              PT DIF Logistics siap membantu merancang solusi logistik yang
+              PT DIF Trans Logistik siap membantu merancang solusi logistik yang
               aman, cepat, dan efisien untuk operasional Anda di seluruh
               Indonesia.
             </p>
@@ -341,8 +341,8 @@ export default function ContactSection() {
                 {status !== "idle" && statusMessage && (
                   <p
                     className={`${styles.statusMessage} ${status === "success"
-                        ? styles.statusSuccess
-                        : styles.statusError
+                      ? styles.statusSuccess
+                      : styles.statusError
                       }`}
                   >
                     {statusMessage}
