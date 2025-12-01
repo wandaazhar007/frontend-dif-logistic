@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import styles from "./InlandTransportPage.module.scss";
 
 export const metadata: Metadata = {
-  title: "Inland Transport | PT DIF Logistics",
+  title: "Inland Transport | PT DIF Trans Logistik",
   description:
-    "Layanan Inland Transport PT DIF Logistics untuk distribusi barang via darat dengan jaringan armada terkoordinasi di seluruh Indonesia.",
+    "Layanan Inland Transport PT DIF Trans Logistik untuk distribusi barang via darat dengan jaringan armada terkoordinasi di seluruh Indonesia.",
 };
 
 export default function InlandTransportPage() {
@@ -37,7 +37,7 @@ export default function InlandTransportPage() {
                 Distribusi Darat yang Terencana untuk Menjaga Rantai Pasok Bisnis Anda.
               </h1>
               <p className={styles.lead}>
-                Inland Transport PT DIF Logistics menghubungkan pelabuhan, gudang,
+                Inland Transport PT DIF Trans Logistik menghubungkan pelabuhan, gudang,
                 dan titik distribusi Anda melalui jaringan transportasi darat yang
                 terstruktur. Kami membantu memastikan barang bergerak tepat waktu,
                 aman, dan sesuai komitmen layanan ke pelanggan.
@@ -100,7 +100,7 @@ export default function InlandTransportPage() {
               <p>
                 Inland Transport berperan sebagai penghubung utama dalam rantai
                 pasok, memastikan pergerakan barang dari satu titik ke titik lain
-                berjalan mulus. PT DIF Logistics mengoordinasikan armada darat,
+                berjalan mulus. PT DIF Trans Logistik mengoordinasikan armada darat,
                 rute, serta jadwal keberangkatan dan kedatangan agar distribusi
                 terlaksana sesuai perencanaan.
               </p>
@@ -238,7 +238,7 @@ export default function InlandTransportPage() {
         {/* BENEFITS SECTION */}
         <section className={styles.benefitSection}>
           <div className={styles.benefitHeader}>
-            <h2>Keunggulan Inland Transport PT DIF Logistics</h2>
+            <h2>Keunggulan Inland Transport PT DIF Trans Logistik</h2>
             <p>
               Kami mengedepankan kejelasan rencana, komunikasi yang terbuka, dan
               pengelolaan operasional yang disiplin di setiap pergerakan armada.
@@ -299,7 +299,7 @@ export default function InlandTransportPage() {
               <h2>Siap mengoptimalkan distribusi darat bisnis Anda?</h2>
               <p>
                 Ceritakan kebutuhan rute, volume pengiriman, dan frekuensi
-                distribusi. Tim PT DIF Logistics akan membantu merancang solusi
+                distribusi. Tim PT DIF Trans Logistik akan membantu merancang solusi
                 Inland Transport yang sesuai dengan profil operasional Anda.
               </p>
             </div>
