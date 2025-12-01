@@ -61,11 +61,11 @@ export default function ServicesCoverageSection() {
           <div className={styles.contentCol}>
             <p className={styles.overline}>Services Coverage</p>
             <h2 id="services-coverage-heading" className={styles.title}>
-              Jangkauan Layanan PT DIF Logistics
+              Jangkauan Layanan PT DIF Trans Logistik
             </h2>
 
             <p className={styles.text}>
-              PT DIF Logistics melayani pengiriman ke seluruh wilayah
+              PT DIF Trans Logistik melayani pengiriman ke seluruh wilayah
               Indonesia, termasuk kota-kota besar, kawasan industri, dan
               lokasi remote. Kami juga menangani pengiriman internasional
               bekerja sama dengan mitra global yang terpercaya.
