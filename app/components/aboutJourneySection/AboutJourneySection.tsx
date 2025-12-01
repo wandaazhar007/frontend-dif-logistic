@@ -13,7 +13,7 @@ const JOURNEY: JourneyItem[] = [
     year: "2019",
     title: "Ide Awal & Fondasi",
     description:
-      "Pendiri DIF Logistics melihat kebutuhan akan layanan logistik yang lebih terintegrasi, transparan, dan berorientasi pada solusi.",
+      "Pendiri DIF Trans Logistik melihat kebutuhan akan layanan logistik yang lebih terintegrasi, transparan, dan berorientasi pada solusi.",
     iconClass: "fa-solid fa-lightbulb",
   },
   {
@@ -102,7 +102,7 @@ export default function AboutJourneySection() {
                 Dibangun dari komitmen, tumbuh bersama kepercayaan pelanggan.
               </h2>
               <p className={styles.text}>
-                PT DIF Logistics lahir dari keyakinan bahwa logistik bukan
+                PT DIF Trans Logistik lahir dari keyakinan bahwa logistik bukan
                 sekadar mengirimkan barang dari titik A ke titik B, tetapi
                 tentang menjaga kepercayaan dan kesinambungan bisnis pelanggan.
               </p>
