@@ -16,14 +16,14 @@ export default function AboutCoreIntroSection() {
             />
           </div>
 
-          <p className={styles.overline}>Tentang PT DIF Logistics</p>
+          <p className={styles.overline}>Tentang PT DIF Trans Logistik</p>
 
           <h1 id="about-core-intro-heading" className={styles.title}>
             Mitra logistik terpadu yang membantu bisnis Anda bergerak lebih cepat.
           </h1>
 
           <p className={styles.subtitle}>
-            PT DIF Logistics hadir sebagai penyedia solusi logistik yang aman,
+            PT DIF Trans Logistik hadir sebagai penyedia solusi logistik yang aman,
             cepat, dan terpercaya bagi berbagai sektor industri di seluruh Indonesia.
           </p>
 
