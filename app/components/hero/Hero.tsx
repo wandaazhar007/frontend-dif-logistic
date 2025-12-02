@@ -11,13 +11,23 @@ export default function Hero() {
             {/* TAGLINE BARU DI ATAS HEADLINE */}
             <p className={styles.tagline}>Fast Delivery with Excellence.</p>
 
-            <h1 id="hero-heading" className={styles.title}>
+            {/* <h1 id="hero-heading" className={styles.title}>
               Logistik Cerdas untuk Bisnis Anda
+              </h1> */}
+            <h1 id="hero-heading" className={styles.title}>
+              Jasa Logistik Terpercaya di Indonesia untuk Pengiriman Laut, Udara, dan Darat
             </h1>
 
-            <p className={styles.subtitle}>
+            {/* <p className={styles.subtitle}>
               Layanan logistik aman, cepat, dan terpercaya untuk semua kebutuhan
               pengiriman Anda di seluruh Indonesia.
+            </p> */}
+            <p className={styles.subtitle}>
+              PT DIF Trans Logistik adalah perusahaan logistik profesional di Indonesia
+              yang menyediakan layanan pengiriman barang melalui jalur laut, udara, dan darat.
+              Kami melayani kebutuhan distribusi antar pulau, supply chain, serta pengiriman
+              komersial untuk berbagai sektor industri dengan layanan yang aman, cepat,
+              dan terukur.
             </p>
 
             <div className={styles.actions}>

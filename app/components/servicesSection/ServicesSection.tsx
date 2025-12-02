@@ -48,9 +48,14 @@ export default function ServicesSection() {
             <h2 id="services-heading" className={styles.title}>
               Layanan Utama Kami
             </h2>
-            <p className={styles.subtitle}>
+            {/* <p className={styles.subtitle}>
               Dukungan end-to-end untuk kebutuhan logistik bisnis Anda, dari pengiriman laut,
               udara, hingga distribusi darat dan solusi kontrak jangka panjang.
+            </p> */}
+            <p className={styles.subtitle}>
+              DIF Trans Logistik menyediakan layanan logistik lengkap, mulai dari pengiriman
+              laut (FCL & LCL), pengiriman udara domestik, transportasi darat, hingga layanan
+              contract logistics untuk mendukung kebutuhan supply chain bisnis Anda.
             </p>
           </div>
           <div className={styles.headerAction}>
