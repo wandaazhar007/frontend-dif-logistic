@@ -92,7 +92,7 @@ export default function Footer() {
                   href="mailto:info@diflogistics.com"
                   className={styles.footerLink}
                 >
-                  info@diflogistics.com
+                  cs@diflogistics.com
                 </a>
               </li>
             </ul>
