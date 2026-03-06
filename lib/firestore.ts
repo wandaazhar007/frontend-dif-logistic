@@ -3,13 +3,7 @@ import { initializeApp, getApps } from "firebase/app";
 import {
   getFirestore,
   collection,
-  addDoc,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  orderBy,
-  limit,
+  addDoc
 } from "firebase/firestore";
 
 const firebaseConfig = {

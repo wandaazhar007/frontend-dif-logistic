@@ -110,7 +110,7 @@ export default function CareerSection() {
         experience: "",
         portfolio: "",
       });
-    } catch (error) {
+    } catch {
       setStatus("error");
       setStatusMessage("Terjadi kesalahan jaringan. Silakan coba lagi.");
     }

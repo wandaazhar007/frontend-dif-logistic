@@ -18,7 +18,7 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormValues>({
     resolver: zodResolver(ContactSchema),

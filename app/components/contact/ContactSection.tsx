@@ -114,7 +114,7 @@ export default function ContactSection() {
 
       // Redirect ke halaman terima kasih
       router.push("/terima-kasih");
-    } catch (error) {
+    } catch {
       setStatus("error");
       setStatusMessage("Terjadi kesalahan jaringan. Silakan coba lagi.");
     }
