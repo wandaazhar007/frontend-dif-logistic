@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start -H 127.0.0.1 -p 3002",
-  "lint": "eslint .",
-  "lint:fix": "eslint . --fix",
-  "test": "jest --passWithNoTests"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1 -p 3002",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
@@ -17,7 +17,7 @@
     "d3-geo": "^3.1.1",
     "firebase": "^12.6.0",
     "immutable": "^5.1.5",
-    "next": "^16.1.6",
+    "next": "^16.2.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.66.0",
